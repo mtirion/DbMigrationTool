@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DbMigrationTool</name>
+    </assembly>
+    <members>
+        <member name="T:DbMigrationTool.Configuration.Connection">
+            <summary>
+            Configuration class for the database.
+            </summary>
+        </member>
+        <member name="P:DbMigrationTool.Configuration.Connection.SqlServer">
+            <summary>
+            Gets or sets the sql server name.
+            </summary>
+        </member>
+        <member name="P:DbMigrationTool.Configuration.Connection.Database">
+            <summary>
+            Gets or sets the database name.
+            </summary>
+        </member>
+        <member name="P:DbMigrationTool.Configuration.Connection.SQLServerUsername">
+            <summary>
+            Gets or sets the sql server username.
+            </summary>
+        </member>
+        <member name="P:DbMigrationTool.Configuration.Connection.SQLServerPassword">
+            <summary>
+            Gets or sets the sql server password.
+            </summary>
+        </member>
+        <member name="T:DbMigrationTool.Helpers.Precondition">
+            <summary>
+            Precondition helper methods.
+            </summary>
+        </member>
+        <member name="M:DbMigrationTool.Helpers.Precondition.NotNull(System.Object)">
+            <summary>
+            Check if condition is met, otherwise an ArgumentException is thrown.
+            </summary>
+            <param name="value">Object value to check.</param>
+        </member>
+        <member name="M:DbMigrationTool.Helpers.Precondition.NotNull(System.Object,System.String)">
+            <summary>
+            Check if condition is met, otherwise an ArgumentException is thrown with the given message.
+            </summary>
+            <param name="value">Object value to check.</param>
+            <param name="message">Message to show in exception when condition is FALSE.</param>
+        </member>
+        <member name="M:DbMigrationTool.Helpers.Precondition.Requires(System.Boolean)">
+            <summary>
+            Check if condition is met, otherwise an ArgumentException is thrown.
+            </summary>
+            <param name="condition">Condition to check.</param>
+        </member>
+        <member name="M:DbMigrationTool.Helpers.Precondition.Requires(System.Boolean,System.String)">
+            <summary>
+            Check if condition is met, otherwise an ArgumentException is thrown with the given message.
+            </summary>
+            <param name="condition">Condition to check.</param>
+            <param name="message">Message to show in exception when condition is FALSE.</param>
+        </member>
+        <member name="T:DbMigrationTool.Helpers.ValidatedNotNullAttribute">
+            <summary>
+            Indicates to Code Analysis that a method validates a particular parameter.
+            </summary>
+        </member>
+        <member name="M:DbMigrationTool.Helpers.ValidatedNotNullAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DbMigrationTool.Helpers.ValidatedNotNullAttribute"/> class.
+            </summary>
+        </member>
+        <member name="T:DbMigrationTool.Interfaces.IDatabaseMigrationService">
+            <summary>
+            Public interface of the database migration service.
+            </summary>
+        </member>
+        <member name="M:DbMigrationTool.Interfaces.IDatabaseMigrationService.MigrateDatabase">
+            <summary>
+            Migrate the database.
+            </summary>
+            <returns>Migration executed TRUE/FALSE.</returns>
+        </member>
+        <member name="T:DbMigrationTool.Program">
+            <summary>
+            The main program class.
+            </summary>
+        </member>
+        <member name="M:DbMigrationTool.Program.CreateConfigBuilder(System.String[])">
+            <summary>
+            Create configuration build object to parse various configuration methods.
+            Currently supported:
+            - appsettings.json
+            - appsettings.[environment].json
+            - environment variables
+            - command line arguments.
+            </summary>
+            <param name="args">Command line arguments.</param>
+            <returns>Configuration builder object.</returns>
+        </member>
+        <member name="M:DbMigrationTool.Program.Main(System.String[])">
+            <summary>
+            Main entry point for the console application.
+            </summary>
+            <param name="args">Commandline arguments.</param>
+        </member>
+        <member name="T:DbMigrationTool.Services.DatabaseMigrationService">
+            <summary>
+            Database migration service implementation.
+            </summary>
+        </member>
+        <member name="M:DbMigrationTool.Services.DatabaseMigrationService.#ctor(Microsoft.Extensions.Options.IOptions{DbMigrationTool.Configuration.Connection})">
+            <summary>
+            Initializes a new instance of the <see cref="T:DbMigrationTool.Services.DatabaseMigrationService"/> class.
+            </summary>
+            <param name="connectionOptions">Configuration of the database.</param>
+        </member>
+        <member name="M:DbMigrationTool.Services.DatabaseMigrationService.MigrateDatabase">
+            <inheritdoc />
+        </member>
+        <member name="T:DbMigrationTool.Startup">
+            <summary>
+            Startup class.
+            </summary>
+        </member>
+        <member name="M:DbMigrationTool.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DbMigrationTool.Startup"/> class.
+            </summary>
+            <param name="configuration">Configuration.</param>
+        </member>
+        <member name="P:DbMigrationTool.Startup.Configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+        </member>
+        <member name="M:DbMigrationTool.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configure services.
+            </summary>
+            <param name="services">Services collection.</param>
+        </member>
+        <member name="M:DbMigrationTool.Startup.Run(Microsoft.Extensions.DependencyInjection.IServiceScope)">
+            <summary>
+            Main entry point of Startup to begin logic of this application.
+            </summary>
+            <param name="scope">Service scope.</param>
+        </member>
+    </members>
+</doc>
