@@ -36,7 +36,6 @@
             services.AddOptions();
 
             // add settings
-            var x = this.Configuration.GetSection(nameof(Connection));
             services.Configure<Connection>(this.Configuration.GetSection(nameof(Connection)));
 
             // add application services
